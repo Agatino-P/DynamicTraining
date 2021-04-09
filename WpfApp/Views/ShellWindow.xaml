@@ -15,6 +15,7 @@
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
     <StackPanel>
+        <TextBox Text="{Binding Expression}" />
         <Button
             Height="50"
             Command="{Binding TestCmd}"
