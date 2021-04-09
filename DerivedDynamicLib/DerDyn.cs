@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Dynamic;
-using Xunit;
+using System.Linq;
+using System.Linq;
+using System.Text;
 
 namespace DerivedDynamicLib
 {
@@ -31,8 +33,23 @@ namespace DerivedDynamicLib
             }
             result = null;
             return false;
-
         }
 
+        public override IEnumerable<string> GetDynamicMemberNames()
+        {
+            return _attributes.Keys.ToArray();
+        }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new();
+            sb.Append($"<{TagName} ");
+            foreach (KeyValuePair<string, object> kvp in _attributes)
+            {
+                sb.Append($"{kvp.Key}='{kvp.Value}' ");
+            }
+            sb.Append("/>");
+            return sb.ToString();
+        }
     }
 }
