@@ -18,10 +18,17 @@ namespace WpfApp.ViewModels
         public DelegateCommand TestCmd { get; private set; }
         private void test()
         {
-            dynamic dc = DateTime.Now;
-            Text = dc.ToString("ddd dd MMM yyyy HH:mm:ss.FFF");
-            DateTime dts = dc;
-            Text = dts.ToString("ddd dd MMM yyyy HH:mm:ss.FFF");
+            excelInterop();
+        }
+        private void excelInterop()
+        {
+
+            Type excelType = Type.GetTypeFromProgID("Excel.Application", true);
+            dynamic excel = Activator.CreateInstance(excelType);
+            excel.Visible = true;
+            excel.WorkBooks.Add();
+            dynamic activeSheet = excel.ActiveSheet;
+            activeSheet.Cells[1, "A"] = "Pippo";
         }
     }
 }
