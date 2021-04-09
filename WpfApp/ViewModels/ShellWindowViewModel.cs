@@ -21,7 +21,7 @@ namespace WpfApp.ViewModels
             dynamic dc = DateTime.Now;
             Text = dc.ToString("ddd dd MMM yyyy HH:mm:ss.FFF");
             DateTime dts = dc;
-            Text = dts.  .ToString("ddd dd MMM yyyy HH:mm:ss.FFF");
+            Text = dts.ToString("ddd dd MMM yyyy HH:mm:ss.FFF");
         }
     }
 }
